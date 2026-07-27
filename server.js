@@ -1,17 +1,8 @@
-// ============================================
-// SZPGold Board - Railway Worker (API Only)
-// وظیفه: ۲۴ ساعته وصل به سرور قیمت، ذخیره در حافظه
-// ============================================
-
 const express = require('express');
 const WebSocket = require('ws');
-const cors = require('cors');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-
-// CORS - همه گیت‌هاب‌ها بتونن وصل بشن
-app.use(cors({ origin: '*' }));
 
 // ============================================
 // حافظه (In-Memory)
