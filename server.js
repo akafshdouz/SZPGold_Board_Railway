@@ -4,6 +4,13 @@ const WebSocket = require('ws');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// CORS دستی - بدون پکیج اضافه
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET');
+  next();
+});
+
 // ============================================
 // حافظه (In-Memory)
 // ============================================
