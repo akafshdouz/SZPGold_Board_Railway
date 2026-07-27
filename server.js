@@ -1,6 +1,5 @@
 const express = require('express');
 const WebSocket = require('ws');
-const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -129,8 +128,14 @@ app.get('/api/last-data', (req, res) => {
   });
 });
 
-// سرو فایل‌های استاتیک (HTML/JS/CSS)
-app.use(express.static(path.join(__dirname, 'public')));
+// CORS برای GitHub Pages
+const cors = require('cors');
+app.use(cors({ origin: '*' }));
+
+// ریشه - فقط status نشون بده
+app.get('/', (req, res) => {
+  res.json({ ok: true, message: 'SZPGold Board API', connected: memory.connected });
+});
 
 // شروع سرور
 app.listen(PORT, () => {
