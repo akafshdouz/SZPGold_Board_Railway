@@ -1,11 +1,10 @@
 {
   "name": "szpgold-board-worker",
   "version": "1.0.0",
-  "description": "Railway worker for SZPGold Board - WebSocket price cache",
+  "description": "Railway worker - WebSocket price cache for SZPGold Board",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node server.js"
+    "start": "node server.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
