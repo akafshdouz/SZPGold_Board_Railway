@@ -387,6 +387,7 @@ function renderCalculatedPrices(goldClosed, coinClosed) {
 }
 
 function calculatePassedTime() {
+function calculatePassedTime() {
   const timerElement = document.getElementById('update-timer');
   if (!timerElement) return;
   
@@ -412,9 +413,21 @@ function calculatePassedTime() {
     timeText = "هم اکنون";
   } else if (diffSec < 60) {
     timeText = `${formatAndPersianize(diffSec)} ثانیه پیش`;
-  } else {
+  } else if (diffSec < 3600) {
     const minutes = Math.floor(diffSec / 60);
     timeText = `${formatAndPersianize(minutes)} دقیقه پیش`;
+  } else if (diffSec < 86400) {
+    const hours = Math.floor(diffSec / 3600);
+    const minutes = Math.floor((diffSec % 3600) / 60);
+    timeText = minutes > 0
+      ? `${formatAndPersianize(hours)} ساعت و ${formatAndPersianize(minutes)} دقیقه پیش`
+      : `${formatAndPersianize(hours)} ساعت پیش`;
+  } else {
+    const days = Math.floor(diffSec / 86400);
+    const hours = Math.floor((diffSec % 86400) / 3600);
+    timeText = hours > 0
+      ? `${formatAndPersianize(days)} روز و ${formatAndPersianize(hours)} ساعت پیش`
+      : `${formatAndPersianize(days)} روز پیش`;
   }
   
   timerElement.innerHTML = `آخرین بروزرسانی قیمت‌ها: <span style="color: #dfb76c;">${timeText}</span>`;
