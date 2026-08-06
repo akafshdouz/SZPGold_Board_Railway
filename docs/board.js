@@ -1,7 +1,7 @@
 // ============================================
 // Railway Server URL - CHANGE THIS WHEN RAILWAY URL CHANGES
 // ============================================
-const SERVER_URL = "szpgoldboardrailway-production-23bd.up.railway.app";
+const SERVER_URL = "szpgoldboardrailway-production.up.railway.app";
 
 let currentSizes = { lgTitle: 7.0, lgPrice: 10.5, mqTitle: 6.0, mqPrice: 9.0, smTitle: 3.2, smPrice: 5.0 };
 let lastUpdateTs = 0;
