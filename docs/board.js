@@ -143,7 +143,13 @@ async function fetchInitialData() {
       gOverlay ? gOverlay.style.opacity === "1" : false,
       cOverlay ? cOverlay.style.opacity === "1" : false
     );
-
+        // M: برداشتن shutter به‌محض دریافت داده اولیه از Railway
+    const shutter = document.getElementById('first-load-shutter');
+    if (shutter) {
+      shutter.style.opacity = '0';
+      setTimeout(() => { if (shutter.parentNode) shutter.remove(); }, 600);
+    }
+    
     return true;
   } catch (err) {
     addSocketLog(`Failed to fetch initial data: ${err.message}`, "error");
